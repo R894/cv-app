@@ -3,6 +3,10 @@ import PersonalDetails from './PersonalDetails';
 import Education from './Education';
 import Experience from './Experience';
 
+import Telephone from '../assets/telephone.png';
+import Email from '../assets/letter.png';
+import Location from '../assets/location.png';
+
 function CVBuilder(){
 
     const [person, setPerson] = useState({
@@ -84,13 +88,14 @@ function CVBuilder(){
                     <h1 className="resume-name">{person.name}</h1>
                     <h2 className="resume-title">{person.title}</h2>
                     <div className="details">
-                        <div className="resume-mail">Mail: {person.email}</div>
-                        <div className="resume-phone">Phone: {person.phone}</div>
-                        <div className="resume-location">Location: {person.location}</div>
+                        <div className="resume-mail"><img src={Email} width="20px" height="20px"></img> {person.email}</div>
+                        <div className="resume-phone"><img src={Telephone} width="20px" height="20px"></img> {person.phone}</div>
+                        <div className="resume-location"><img src={Location} width="20px" height="20px"></img> {person.location}</div>
                     </div>
                 </div>
                 
                 <div className="education">
+                    <h3>Education</h3>
                     {education.map((edu, index) => (
                         <div className="details" key={index}>
                             <div className="resume-institution">Institution: {edu.institution}</div>
@@ -101,6 +106,7 @@ function CVBuilder(){
                 </div>
 
                 <div className="experience">
+                        <h3>Experience</h3>
                         {experience.map((exp, index) =>(
                             <div className="details" key={index}>
                                 <div className="resume-position">Position: {exp.position}</div>

@@ -17,6 +17,7 @@
 }
 
 .resume-container {
+  border: 1px solid #ccc;
   width: 50%;
   float: left;
   padding: 20px;
@@ -24,8 +25,24 @@
 }
 
 /* personal details */
+.personal-details{
+  display: flex;
+  flex-direction: column;
+}
+
 .personal-info {
   margin-bottom: 20px;
+}
+.personal-info .details{
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.personal-info .details div{
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 
 .resume-name {
@@ -37,6 +54,8 @@
   font-size: 1.5rem;
   margin: 5px 0;
 }
+
+
 
 /* education and experience */
 .details {
