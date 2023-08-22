@@ -1,5 +1,4 @@
 function PersonalDetails({person, onChange}){
-
     const handleInputChange = (property, event) => {
         const newValue = event.target.value;
         onChange(property, newValue);
@@ -12,6 +11,10 @@ function PersonalDetails({person, onChange}){
                 <input 
                     placeholder='Full name'
                     onChange={(event) => handleInputChange('name', event)}
+                />
+                <input 
+                    placeholder='Title'
+                    onChange={(event) => handleInputChange('title', event)}
                 />
                 <input 
                     placeholder='Email'

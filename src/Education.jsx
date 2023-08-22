@@ -1,4 +1,5 @@
 function Education({ education, onChange, onAdd, onDelete }) {
+    
     const handleInputChange = (index, property, event) => {
         const newValue = event.target.value;
         onChange(index, property, newValue);

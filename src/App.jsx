@@ -1,5 +1,5 @@
-import './App.css'
-import CVBuilder from './Cv'
+import './App.css';
+import CVBuilder from './Cv';
 
 function App() {
   return (
@@ -9,4 +9,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
