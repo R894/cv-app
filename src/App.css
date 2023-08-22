@@ -7,14 +7,42 @@
   gap: 1rem;
 }
 
-.personal-details{
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  gap: 0.5rem;
+/* main containers */
+.editor {
+  width: 50%;
+  float: left;
+  padding: 20px;
+  background-color: #f2f2f2;
+  box-sizing: border-box;
 }
-.details{
-  display: flex;
-  gap:1rem;
+
+.resume-container {
+  width: 50%;
+  float: left;
+  padding: 20px;
+  box-sizing: border-box;
 }
+
+/* personal details */
+.personal-info {
+  margin-bottom: 20px;
+}
+
+.resume-name {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.resume-title {
+  font-size: 1.5rem;
+  margin: 5px 0;
+}
+
+/* education and experience */
+.details {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
 
