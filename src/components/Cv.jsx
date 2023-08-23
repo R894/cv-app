@@ -17,13 +17,9 @@ function CVBuilder(){
         location: ''
     });
 
-    const [education, setEducation] = useState([
-        { institution: '', degree: '', year: '' },
-    ]);
+    const [education, setEducation] = useState([]);
 
-    const[experience, setExperience] = useState([
-        { position: '', company: '', startDate: '', endDate:'', description: ''}
-    ]);
+    const[experience, setExperience] = useState([]);
 
     const handleDetailsChange = (property, value) => {
         setPerson(prevPerson => ({
