@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import PersonalDetails from './PersonalDetails';
-import Education from './Education';
-import Experience from './Experience';
 
 import Telephone from '../assets/telephone.png';
 import Email from '../assets/letter.png';
 import Location from '../assets/location.png';
+import Section from './Section';
 
 function CVBuilder(){
 
@@ -28,35 +27,43 @@ function CVBuilder(){
         }));
     };
 
-    const handleEducationChange = (index, property, newValue) => {
-        const updatedEducation = [...education];
-        updatedEducation[index] = { ...updatedEducation[index], [property]: newValue };
+    const handleEducationChange = (property, value, index) => {
+        setEducation(prevEducation => {
+            const updatedEducation = [...prevEducation];
+            updatedEducation[index] = {
+                ...updatedEducation[index],
+                [property]: value
+            };
+            return updatedEducation;
+        });
+    };
+
+    const handleEducationAdd = () => {
+        setEducation([...education, { institution: '',degree: '',year: ''}]);
+    };
+
+    const handleEducationDelete = (index) => {
+        const updatedEducation = education.filter((_, i) => i !== index);
         setEducation(updatedEducation);
     };
 
-    const handleAddEducation = () => {
-        setEducation([...education, { institution: '', degree: '', year: '' }]);
+    const handleExperienceChange = (property, value, index) => {
+        setExperience(prevExperience => {
+            const updatedExperience = [...prevExperience];
+            updatedExperience[index] = {
+                ...updatedExperience[index],
+                [property]: value
+            };
+            return updatedExperience;
+        });
     };
 
-    const handleDeleteEducation = (index) => {
-        const updatedEducation = [...education];
-        updatedEducation.splice(index, 1);
-        setEducation(updatedEducation);
+    const handleExperienceAdd = () => {
+        setExperience([...experience, { position: '', company: '',startDate: '', endDate:'', description:''}]);
     };
 
-    const handleExperienceChange = (index, property, newValue) => {
-        const updatedExperience = [...experience];
-        updatedExperience[index] = {...updatedExperience[index], [property]: newValue };
-        setExperience(updatedExperience);
-    };
-
-    const handleAddExperience = () => {
-        setExperience([...experience, { position: '', company: '', startDate: '', endDate:'', description: ''}]);
-    };
-
-    const handleDeleteExperience = (index) => {
-        const updatedExperience = [...experience];
-        updatedExperience.splice(index, 1);
+    const handleExperieceDelete = (index) => {
+        const updatedExperience = experience.filter((_, i) => i !== index);
         setExperience(updatedExperience);
     };
 
@@ -64,17 +71,22 @@ function CVBuilder(){
         <>
             <div className="editor">
                 <PersonalDetails person={person} onChange={handleDetailsChange} />
-                <Education
-                    education={education}
+                <Section
+                    name='Education'
+                    data={education}
+                    properties={['institution', 'degree','year']}
                     onChange={handleEducationChange}
-                    onAdd={handleAddEducation}
-                    onDelete={handleDeleteEducation}
-                />
-                <Experience 
-                    experience={experience}
+                    onAdd={handleEducationAdd}
+                    onDelete={handleEducationDelete}
+
+                /> 
+                <Section
+                    name='Experience'
+                    data={experience}
+                    properties={['position', 'company', 'startDate','endDate', 'description']}
                     onChange={handleExperienceChange}
-                    onAdd={handleAddExperience}
-                    onDelete={handleDeleteExperience}
+                    onAdd={handleExperienceAdd}
+                    onDelete={handleExperieceDelete}
                 />
 
             </div>

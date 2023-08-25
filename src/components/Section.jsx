@@ -4,9 +4,9 @@ function Section({ name, data, properties, onChange, onAdd, onDelete }) {
 
     const [editModes, setEditModes] = useState([]);
     
-    const handleInputChange = (property, event) => {
+    const handleInputChange = (property, event,index) => {
         const newValue = event.target.value;
-        onChange(property, newValue);
+        onChange(property, newValue, index);
     };
 
     const toggleEditMode = (index) => {
@@ -29,10 +29,10 @@ function Section({ name, data, properties, onChange, onAdd, onDelete }) {
                         <>
                             {properties.map((property) => (
                                 <input
-                                    key ={property}
+                                    key={property}
                                     placeholder={property}
                                     value={item[property]}
-                                    onChange={(event) => handleInputChange(property, event)}
+                                    onChange={(event) => handleInputChange(property, event, index)}
                                 />
                             ))}
                             <button onClick={() => toggleEditMode(index)}>Save</button>
