@@ -27,44 +27,27 @@ function CVBuilder(){
         }));
     };
 
-    const handleEducationChange = (property, value, index) => {
-        setEducation(prevEducation => {
-            const updatedEducation = [...prevEducation];
-            updatedEducation[index] = {
-                ...updatedEducation[index],
+    const handleDataChange = (dataSetter, index, property, value) => {
+        dataSetter(prevData => {
+            const updatedData = [...prevData];
+            updatedData[index] = {
+                ...updatedData[index],
                 [property]: value
             };
-            return updatedEducation;
+            return updatedData;
         });
     };
 
-    const handleEducationAdd = () => {
-        setEducation([...education, { institution: '',degree: '',year: ''}]);
+    const handleDataAdd = (dataSetter, initialData) => {
+        dataSetter(prevData => [...prevData, {...initialData }]);
     };
 
-    const handleEducationDelete = (index) => {
-        const updatedEducation = education.filter((_, i) => i !== index);
-        setEducation(updatedEducation);
-    };
-
-    const handleExperienceChange = (property, value, index) => {
-        setExperience(prevExperience => {
-            const updatedExperience = [...prevExperience];
-            updatedExperience[index] = {
-                ...updatedExperience[index],
-                [property]: value
-            };
-            return updatedExperience;
+    const handleDataDelete = (dataSetter, index) => {
+        dataSetter(prevData => {
+            const updatedData = [...prevData];
+            updatedData.splice(index,1);
+            return updatedData;
         });
-    };
-
-    const handleExperienceAdd = () => {
-        setExperience([...experience, { position: '', company: '',startDate: '', endDate:'', description:''}]);
-    };
-
-    const handleExperieceDelete = (index) => {
-        const updatedExperience = experience.filter((_, i) => i !== index);
-        setExperience(updatedExperience);
     };
 
     return(
@@ -75,18 +58,18 @@ function CVBuilder(){
                     name='Education'
                     data={education}
                     properties={['institution', 'degree','year']}
-                    onChange={handleEducationChange}
-                    onAdd={handleEducationAdd}
-                    onDelete={handleEducationDelete}
+                    onChange={(prop, val, index) => handleDataChange(setEducation, index, prop, val)}
+                    onAdd={() => handleDataAdd(setEducation, { institution: '', degree: '', year: '' })}
+                    onDelete={index => handleDataDelete(setEducation, index)}
 
                 /> 
                 <Section
                     name='Experience'
                     data={experience}
                     properties={['position', 'company', 'startDate','endDate', 'description']}
-                    onChange={handleExperienceChange}
-                    onAdd={handleExperienceAdd}
-                    onDelete={handleExperieceDelete}
+                    onChange={(prop, val, index) => handleDataChange(setExperience, index, prop, val)}
+                    onAdd={() => handleDataAdd(setExperience, { position: '', company: '', startDate: '', endDate: '', description: '' })}
+                    onDelete={index => handleDataDelete(setExperience, index)}
                 />
 
             </div>
