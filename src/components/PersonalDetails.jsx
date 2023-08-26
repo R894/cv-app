@@ -6,7 +6,7 @@ function PersonalDetails({person, onChange}){
 
     
     return (
-        <div className='personal-details'>
+        <div className='grid'>
             <h2>Personal Details</h2>       
                 <input 
                     placeholder='Full name'

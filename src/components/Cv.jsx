@@ -51,8 +51,8 @@ function CVBuilder(){
     };
 
     return(
-        <>
-            <div className="editor">
+        <div className='flex grow gap-40 justify-between p-20 items-center'>
+            <div className="w-1/2 min-h-[50%] border-2 p-3 flex-col">
                 <PersonalDetails person={person} onChange={handleDetailsChange} />
                 <Section
                     name='Education'
@@ -74,19 +74,19 @@ function CVBuilder(){
 
             </div>
             
-            <div className="resume-container">
-                <div className="personal-info">
-                    <h1 className="resume-name">{person.name}</h1>
-                    <h2 className="resume-title">{person.title}</h2>
-                    <div className="details">
-                        <div className="resume-mail"><img src={Email} width="20px" height="20px"></img> {person.email}</div>
-                        <div className="resume-phone"><img src={Telephone} width="20px" height="20px"></img> {person.phone}</div>
-                        <div className="resume-location"><img src={Location} width="20px" height="20px"></img> {person.location}</div>
+            <div className="w-1/2 min-h-[50%] border-2 p-3">
+                <div className="border-b-2 pb-2">
+                    <h1 className="text-2xl">{person.name}</h1>
+                    <h2 className="text-1xl">{person.title}</h2>
+                    <div className="flex justify-around">
+                        <div className="flex"><img src={Email} className='h-6 w-6 mr-2'></img> {person.email}</div>
+                        <div className="flex"><img src={Telephone} className='h-6 mr-2'></img> {person.phone}</div>
+                        <div className="flex"><img src={Location} className='h-6 mr-2'></img> {person.location}</div>
                     </div>
                 </div>
                 
                 <div className="education">
-                    <h3>Education</h3>
+                    <h3 className='text-lg'>Education</h3>
                     {education.map((edu, index) => (
                         <div className="details" key={index}>
                             <div className="resume-institution">Institution: {edu.institution}</div>
@@ -97,7 +97,7 @@ function CVBuilder(){
                 </div>
 
                 <div className="experience">
-                        <h3>Experience</h3>
+                        <h3 className='text-lg'>Experience</h3>
                         {experience.map((exp, index) =>(
                             <div className="details" key={index}>
                                 <div className="resume-position">Position: {exp.position}</div>
@@ -111,7 +111,7 @@ function CVBuilder(){
             </div>
             
         
-        </>
+        </div>
         
     );
 

@@ -35,7 +35,7 @@ function Section({ name, data, properties, onChange, onAdd, onDelete }) {
                                     onChange={(event) => handleInputChange(property, event, index)}
                                 />
                             ))}
-                            <button onClick={() => toggleEditMode(index)}>Save</button>
+                            <button className='bg-slate-600' onClick={() => toggleEditMode(index)}>Save</button>
                             
                         </>
                     ) : (
@@ -48,10 +48,10 @@ function Section({ name, data, properties, onChange, onAdd, onDelete }) {
                             <button onClick={() => toggleEditMode(index)}>Edit</button>
                         </>
                     )}
-                    <button onClick={() => onDelete(index)}>Delete</button>
+                    <button className='bg-slate-600' onClick={() => onDelete(index)}>Delete</button>
                 </div>
             ))}
-            <button onClick={addSectionItem}>Add {name}</button>
+            <button className='bg-slate-600' onClick={addSectionItem}>Add {name}</button>
         </div>
     );
 }
