@@ -79,9 +79,18 @@ function CVBuilder(){
                     <h1 className="text-2xl">{person.name}</h1>
                     <h2 className="text-1xl">{person.title}</h2>
                     <div className="flex justify-around">
-                        <div className="flex"><img src={Email} className='h-6 w-6 mr-2'></img> {person.email}</div>
-                        <div className="flex"><img src={Telephone} className='h-6 mr-2'></img> {person.phone}</div>
-                        <div className="flex"><img src={Location} className='h-6 mr-2'></img> {person.location}</div>
+                        {
+                            person.email.length > 0 ? <div className="flex"><img src={Email} className='h-6 w-6 mr-2'></img> {person.email}</div> : null
+
+                        }
+                        {   
+                            person.phone.length > 0 ? <div className="flex"><img src={Telephone} className='h-6 mr-2'></img> {person.phone}</div> : null
+                        }
+                        {
+                            person.location.length > 0 ? <div className="flex"><img src={Location} className='h-6 mr-2'></img> {person.location}</div> : null
+                        }
+                        
+                        
                     </div>
                 </div>
                 
