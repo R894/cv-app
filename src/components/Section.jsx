@@ -36,19 +36,21 @@ function Section({ name, data, properties, onChange, onAdd, onDelete }) {
                                 />
                             ))}
                             <button className='bg-slate-600' onClick={() => toggleEditMode(index)}>Save</button>
-                            
+                            <button className='bg-slate-600' onClick={() => onDelete(index)}>Delete</button>
                         </>
                     ) : (
                         <>
+                            <div className='flex'>
                             {properties.map((property) => (
-                                <p key={property}>
-                                    {property}:{item[property]}
-                                </p>
+                                <div key={property} className='mx-1'>
+                                    {property}: {item[property]}
+                                </div>
                             ))}
+                            </div>
                             <button onClick={() => toggleEditMode(index)}>Edit</button>
                         </>
                     )}
-                    <button className='bg-slate-600' onClick={() => onDelete(index)}>Delete</button>
+                    
                 </div>
             ))}
             <button className='bg-slate-600' onClick={addSectionItem}>Add {name}</button>
