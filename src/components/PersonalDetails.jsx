@@ -6,7 +6,7 @@ function PersonalDetails({person, onChange}){
 
     
     return (
-        <div className='grid'>
+        <div className='border-2 flex-col my-2 p-2'>
             <h2>Personal Details</h2>       
                 <input 
                     placeholder='Full name'

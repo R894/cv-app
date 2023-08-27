@@ -52,7 +52,7 @@ function CVBuilder(){
 
     return(
         <div className='flex grow gap-40 justify-between p-20 items-center'>
-            <div className="w-1/2 min-h-[50%] border-2 p-3 flex-col">
+            <div className="w-1/2 min-h-[70%] border-2 p-3 flex-col">
                 <PersonalDetails person={person} onChange={handleDetailsChange} />
                 <Section
                     name='Education'
@@ -74,7 +74,7 @@ function CVBuilder(){
 
             </div>
             
-            <div className="w-1/2 min-h-[50%] border-2 p-3">
+            <div className="w-1/2 min-h-[70%] border-2 p-3">
                 <div className="border-b-2 pb-2">
                     <h1 className="text-2xl">{person.name}</h1>
                     <h2 className="text-1xl">{person.title}</h2>
@@ -86,9 +86,9 @@ function CVBuilder(){
                 </div>
                 
                 <div className="education">
-                    <h3 className='text-lg'>Education</h3>
+                    {education.length > 0 ? (<h3 className='text-lg'>Education</h3>):null}
                     {education.map((edu, index) => (
-                        <div className="details" key={index}>
+                        <div className="border-2 flex-col my-2 p-2" key={index}>
                             <div className="resume-institution">Institution: {edu.institution}</div>
                             <div className="resume-degree">Degree: {edu.degree}</div>
                             <div className="resume-year">Year: {edu.year}</div>
@@ -97,9 +97,9 @@ function CVBuilder(){
                 </div>
 
                 <div className="experience">
-                        <h3 className='text-lg'>Experience</h3>
+                        {experience.length > 0 ? <h3 className='text-lg'>Experience</h3> :  null}
                         {experience.map((exp, index) =>(
-                            <div className="details" key={index}>
+                            <div className="border-2 flex-col my-2 p-2" key={index}>
                                 <div className="resume-position">Position: {exp.position}</div>
                                 <div className="resume-company">Company: {exp.company}</div>
                                 <div className="resume-start-date">Start Date: {exp.startDate}</div>

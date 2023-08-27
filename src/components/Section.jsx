@@ -21,7 +21,7 @@ function Section({ name, data, properties, onChange, onAdd, onDelete }) {
     };
 
     return (
-        <div className={name}>
+        <div className='border-2 flex-col my-2 p-2'>
             <h2>{name}</h2>
             {data.map((item, index) => (
                 <div key={index}>
