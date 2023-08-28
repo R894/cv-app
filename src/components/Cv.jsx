@@ -52,7 +52,7 @@ export default function CVBuilder(){
 
     return(
         <div className='flex grow gap-40 justify-between p-20 items-center overflow-auto'>
-            <div className="w-1/2 min-w-min min-h-[70%] border-2 p-3 flex-col max-h-full overflow-auto">
+            <div className="w-1/2 min-w-[20rem] min-h-[30rem] border-2 p-3 max-h-full overflow-auto">
                 <PersonalDetails person={person} onChange={handleDetailsChange} />
                 <Section
                     name='Education'
@@ -72,7 +72,7 @@ export default function CVBuilder(){
                 />
             </div>
             
-            <div className="w-1/2 min-w-[30rem] min-h-[70%] border-2 p-3 max-h-full max-h-full overflow-auto">
+            <div className="w-1/2 min-w-[20rem] min-h-[30rem] border-2 p-3 max-h-full overflow-auto">
                 <div className="border-b-2 pb-2">
                     <h1 className="text-2xl">{person.name}</h1>
                     <h2 className="text-1xl">{person.title}</h2>
