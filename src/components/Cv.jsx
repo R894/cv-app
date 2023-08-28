@@ -6,7 +6,7 @@ import Email from '../assets/letter.png';
 import Location from '../assets/location.png';
 import Section from './Section';
 
-function CVBuilder(){
+export default function CVBuilder(){
 
     const [person, setPerson] = useState({
         name: '',
@@ -51,7 +51,7 @@ function CVBuilder(){
     };
 
     return(
-        <div className='flex grow gap-40 justify-between p-20 items-center'>
+        <div className='flex grow gap-40 justify-between p-20 items-center overflow-auto'>
             <div className="w-1/2 min-w-min min-h-[70%] border-2 p-3 flex-col max-h-full overflow-auto">
                 <PersonalDetails person={person} onChange={handleDetailsChange} />
                 <Section
@@ -61,7 +61,6 @@ function CVBuilder(){
                     onChange={(prop, val, index) => handleDataChange(setEducation, index, prop, val)}
                     onAdd={() => handleDataAdd(setEducation, { institution: '', degree: '', year: '' })}
                     onDelete={index => handleDataDelete(setEducation, index)}
-
                 /> 
                 <Section
                     name='Experience'
@@ -71,7 +70,6 @@ function CVBuilder(){
                     onAdd={() => handleDataAdd(setExperience, { position: '', company: '', startDate: '', endDate: '', description: '' })}
                     onDelete={index => handleDataDelete(setExperience, index)}
                 />
-
             </div>
             
             <div className="w-1/2 min-w-[30rem] min-h-[70%] border-2 p-3 max-h-full max-h-full overflow-auto">
@@ -89,8 +87,6 @@ function CVBuilder(){
                         {
                             person.location.length > 0 ? <div className="flex"><img src={Location} className='h-6 mr-2'></img> {person.location}</div> : null
                         }
-                        
-                        
                     </div>
                 </div>
                 
@@ -118,11 +114,10 @@ function CVBuilder(){
                         ))}
                 </div>
             </div>
-            
-        
         </div>
         
     );
 
 }
-export default CVBuilder;
+
+

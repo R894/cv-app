@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Section({ name, data, properties, onChange, onAdd, onDelete }) {
+export default function Section({ name, data, properties, onChange, onAdd, onDelete }) {
 
     const [editModes, setEditModes] = useState([]);
     
@@ -57,5 +57,3 @@ function Section({ name, data, properties, onChange, onAdd, onDelete }) {
         </div>
     );
 }
-
-export default Section;
